@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+
+.container {
+    box-sizing: border-box;
+    outline: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5px 5px;
+}
+
+.container div {
+    box-sizing: border-box;
+    background-color: white;
+}
