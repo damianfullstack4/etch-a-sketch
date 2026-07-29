@@ -2,7 +2,7 @@ const regenBtn = document.querySelector(`.regen`);
 const resetBtn = document.querySelector(`.reset`);
 const dimensions = document.querySelector(`.dimensions`);
 const container = document.querySelector(`.container`);
-const CONTAINER_WIDTH = 525;
+const CONTAINER_WIDTH = 490;
 const SQUARE_NUM_MAX = 100;
 const SQUARE_NUM_MIN = 1;
 
