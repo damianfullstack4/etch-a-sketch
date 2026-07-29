@@ -1,6 +1,6 @@
 const body = document.querySelector(`body`);
 const container = document.querySelector(`.container`);
-const CONTAINER_WIDTH = 600;
+const CONTAINER_WIDTH = 550;
 const SQUARE_NUM_MAX = 100;
 
 // Squares & Dimensions //

@@ -6,8 +6,17 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: grey;
+}
+
+button {
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 2px 3px;
 }
 
 .container {
