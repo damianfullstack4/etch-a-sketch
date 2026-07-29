@@ -7,19 +7,19 @@ const CONTAINER_WIDTH = 550;
 const SQUARE_NUM_MAX = 100;
 const SQUARE_NUM_MIN = 1;
 
-
-// Default square num & assign fixed container width //
+//
 let squareNum = 16;
 container.style.width = `${CONTAINER_WIDTH}px`;
 
 createGrid(squareNum);
+//
 
 // Painter
 container.addEventListener(`mouseover`, paintPixel);
 function paintPixel(e){
     if(!e.target.classList.contains(`container`)){
         e.target.style.backgroundColor = randomColor();
-        console.log(`trigger`);
+        if(e.target.style.opacity < 1){e.target.style.opacity = Number(e.target.style.opacity) + .1;}
     }
 }
 
@@ -48,8 +48,9 @@ function createGrid(squareNum){
         container.appendChild(square);
     }
 }
+
+//Reset
 resetBtn.addEventListener(`click`, reset);
-// Not used yet //
 function reset(){
     for(const child of container.children){
         child.style.backgroundColor = `white`;
