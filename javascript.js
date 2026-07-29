@@ -1,4 +1,3 @@
-const body = document.querySelector(`body`);
 const regenBtn = document.querySelector(`.regen`);
 const resetBtn = document.querySelector(`.reset`);
 const dimensions = document.querySelector(`.dimensions`);
@@ -27,7 +26,7 @@ function paintPixel(e){
 regenBtn.addEventListener(`click`, regenerate);
 function regenerate(){
     do{
-        squareNum = Number(prompt(`Enter desired pixel width:\nInput must be between ${SQUARE_NUM_MIN}-${SQUARE_NUM_MAX} inclusive`));
+        squareNum = Number(prompt(`Enter desired pixel width:\nInput must be between ${SQUARE_NUM_MIN}-${SQUARE_NUM_MAX} inclusive`, squareNum));
         if(squareNum === 0){return;} // Cancel
     }while(
         squareNum < SQUARE_NUM_MIN ||
@@ -54,6 +53,7 @@ resetBtn.addEventListener(`click`, reset);
 function reset(){
     for(const child of container.children){
         child.style.backgroundColor = `white`;
+        child.style.opacity = 0;
     }
 }
 

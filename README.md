@@ -1,7 +1,7 @@
 # etch-a-sketch
 
 ## Brief Description
-A browser based paintable canvas grid game made as a project for The Odin Project. 
+A browser based paintable canvas grid game made as a project for The Odin Project Etch-A-Sketch portion. 
 The player can drag their mouse across the pixels to paint random colors of increasing opacity.
 The game features a regen button to allow the play to specify the canvas pixel width and reset button.
 The current dimensions are dynamically indicated above the canvas
