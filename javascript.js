@@ -1,16 +1,20 @@
 const body = document.querySelector(`body`);
-const regenBtn = document.querySelector(`button`);
+const regenBtn = document.querySelector(`.regen`);
+const resetBtn = document.querySelector(`.reset`);
 const dimensions = document.querySelector(`.dimensions`);
 const container = document.querySelector(`.container`);
 const CONTAINER_WIDTH = 550;
 const SQUARE_NUM_MAX = 100;
+const SQUARE_NUM_MIN = 1;
 
-// Squares & Dimensions //
+
+// Default square num & assign fixed container width //
 let squareNum = 16;
 container.style.width = `${CONTAINER_WIDTH}px`;
 
 createGrid(squareNum);
 
+// Painter
 container.addEventListener(`mouseover`, paintPixel);
 function paintPixel(e){
     if(!e.target.classList.contains(`container`)){
@@ -19,32 +23,36 @@ function paintPixel(e){
     }
 }
 
+// Regen
 regenBtn.addEventListener(`click`, regenerate);
 function regenerate(){
-    for(const child of container.children){
-        child.style.backgroundColor = `white`;
-    }
-    squareNum = -1;
-    while(true){
-        squareNum = Number(prompt(`Enter desired pixel width:`));
-        if(squareNum > 0 && squareNum <= 100 && Number.isInteger(squareNum)){
-            break;
-        }else{
-            alert(`Invalid input. Please choose an integer between 0 and 100 inclusive`);
-        }
-    }
+    do{
+        squareNum = Number(prompt(`Enter desired pixel width:\nInput must be between ${SQUARE_NUM_MIN}-${SQUARE_NUM_MAX} inclusive`));
+        if(squareNum === 0){return;} // Cancel
+    }while(
+        squareNum < SQUARE_NUM_MIN ||
+        squareNum > SQUARE_NUM_MAX ||
+        !Number.isInteger(squareNum)
+    )
     dimensions.textContent = `${squareNum} x ${squareNum}`;
     container.replaceChildren();
     createGrid(squareNum);
 }
-
+// Creater
 function createGrid(squareNum){
-    let squareDim = CONTAINER_WIDTH / squareNum;
+    const squareDim = CONTAINER_WIDTH / squareNum;
     for(let i = 0; i < squareNum * squareNum; i++){
-        let square = document.createElement(`div`);
+        const square = document.createElement(`div`);
         square.style.width = `${squareDim}px`;
         square.style.height = `${squareDim}px`;
         container.appendChild(square);
+    }
+}
+resetBtn.addEventListener(`click`, reset);
+// Not used yet //
+function reset(){
+    for(const child of container.children){
+        child.style.backgroundColor = `white`;
     }
 }
 
